@@ -5,8 +5,8 @@ function config($routeProvider){
             controller: 'listCtrl',
             controllerAs: 'vm'
         })
-        .when('/list_packs', {
-            templateUrl: 'views/list_packs.html',
+        .when('/list-packs', {
+            templateUrl: 'views/list-packs.html',
             controller: 'listPacksCtrl',
             controllerAs: 'vm'
         })
@@ -15,14 +15,19 @@ function config($routeProvider){
             controller: 'createCtrl',
             controllerAs: 'vm'
         })
-        .when('/create_packs', {
-            templateUrl: 'views/create_packs.html',
-            controller: 'createCtrl',
+        .when('/create-packs', {
+            templateUrl: 'views/create-packs.html',
+            controller: 'createPacksCtrl',
             controllerAs: 'vm'
         })
         .when('/update/:id', {
             templateUrl: 'views/update.html',
             controller: 'updateCtrl',
+            controllerAs: 'vm'
+        })
+        .when('/update-packs/:id', {
+            templateUrl: 'views/update-packs.html',
+            controller: 'updatePacksCtrl',
             controllerAs: 'vm'
         })
         .when('/delete/:id', {
@@ -55,6 +60,7 @@ angular
     .controller('createCtrl', createCtrl)
     .controller('createPacksCtrl', createPacksCtrl)
     .controller('updateCtrl', updateCtrl)
+    .controller('updatePacksCtrl', updatePacksCtrl)
     .controller('deleteCtrl', deleteCtrl)
     .controller('signupCtrl', signupCtrl)
     .controller('loginCtrl', loginCtrl)

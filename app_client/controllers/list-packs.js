@@ -14,7 +14,7 @@ function listPacksCtrl($http, $location, $rootScope) {
     //
 
     p1.then(res=>{
-        vm.list = res.data;
+        vm.list_packs = res.data;
     },
     err=>{
         $location.path('/');
@@ -23,7 +23,7 @@ function listPacksCtrl($http, $location, $rootScope) {
     }
     );
 
-    console.log('hello!');
+    //console.log('hello!');
 
   //  localStorage.setItem('test', 'ok');
 

@@ -1,25 +1,3 @@
-<!--<ng-include src="'views/mainMenu.html'"></ng-include>-->
-<!--<h2>{{ vm.title }}</h2>-->
-
-<!--<form ng-class="(vm.formWasValidated) ? 'was-validated': ''" class="needs-validation" ng-submit="vm.sendForm()" novalidate>-->
-<!--    <div class="form-row">-->
-<!--        <div class="col-md-6 mb-3">-->
-<!--            <label for="name">Название</label>-->
-<!--            <input ng-class="(vm.formModel.name.valid) ? '': 'is-invalid'"  ng-model="vm.formModel.name.value"-->
-<!--                   type="text" class="form-control" id="name" ng-keyup="vm.validate()">-->
-<!--            <div ng-class="(vm.formModel.name.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">-->
-<!--                {{vm.formModel.name.infoText}}-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <button ng-disabled="!vm.formWasValidated" class="btn btn-primary" type="submit">Добавить</button>-->
-<!--</form>-->
-
-<!--<div ng-show="vm.error.length" class="alert alert-danger" role="alert">-->
-<!--    {{vm.error}}-->
-<!--</div>-->
-
-
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -38,7 +16,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="/#!/list.html">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Журнал</span></a>
@@ -48,7 +26,7 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Обучающиеся</span></a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="index.html">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Группы</span></a>
@@ -73,11 +51,11 @@
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                 <!--                <ng-include src="'views/mainMenu.html'"></ng-include>-->
-                <div class="sidebar-brand-text mx-3"><h5>Добавление Групп(-ы)</h5></div>
+                <div class="sidebar-brand-text mx-3"><h5>Редактирование Записи(-ей)</h5></div>
 
                 <ul class="navbar-nav ml-auto">
-                    <a href="/#!/list_packs" class="btn btn-light btn-icon-split">
-                    <span class="icon text-gray-600">
+                    <a href="/#!/list" class="btn btn-light btn-icon-split">
+                    <span class="icon text-white-50">
                       <i class="fas fa-arrow-left"></i>
                     </span>
                         <span class="text">Назад</span>
@@ -103,22 +81,28 @@
                 <form ng-class="(vm.formWasValidated) ? 'was-validated': ''" class="needs-validation"
                       ng-submit="vm.sendForm()" novalidate>
                     <div class="form-row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-3 mb-4">
                             <label for="name">Название</label>
-                            <input ng-class="(vm.formModel.name.valid) ? '': 'is-invalid'"  ng-model="vm.formModel.name.value"
+                            <input ng-class="(vm.formModel.name.valid) ? '': 'is-invalid'"
+                                   ng-model="vm.formModel.name.value"
                                    type="text" class="form-control" id="name" ng-keyup="vm.validate()">
                             <div ng-class="(vm.formModel.name.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
                                 {{vm.formModel.name.infoText}}
                             </div>
                         </div>
                     </div>
-                    <button ng-disabled="!vm.formWasValidated" class="btn btn-primary" type="submit">Добавить</button>
+                    <button ng-disabled="!vm.formWasValidated" class="btn btn-primary btn-icon-split"
+                            type="submit"> <span
+                            class="icon text-white-50">
+                      <i class="fas fa-check"></i>
+                    </span>
+                        <span class="text">Добавить</span>
+                    </button>
                 </form>
 
                 <div ng-show="vm.error.length" class="alert alert-danger" role="alert">
                     {{vm.error}}
                 </div>
-
             </div>
         </div>
     </div>

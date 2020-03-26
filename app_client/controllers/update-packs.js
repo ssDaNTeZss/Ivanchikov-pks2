@@ -1,7 +1,7 @@
-function createPacksCtrl($http, $location) {
+function updatePacksCtrl($http, $location, $routeParams) {
     let vm = this;
     vm.error = '';
-    // vm.name = "Добавление";
+    const id = $routeParams.id;
 
 
     vm.formWasValidated = false;
@@ -20,20 +20,19 @@ function createPacksCtrl($http, $location) {
         const onlyLettersAndDigits = /^([-\.a-zа-яё \d]+)$/i;
 
         for (let field in vm.formModel){
-            // if(field!=='dateStart' && field!=='dateFinish'){
+            if(field!=='dateStart' && field!=='dateFinish'){
                 vm.formModel[field].valid = onlyLettersAndDigits.test(vm.formModel[field].value);
                 vm.formModel[field].infoText = (vm.formModel[field].valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
                 vm.formWasValidated = vm.formWasValidated && vm.formModel[field].valid;
-            // }
+            }
         }
     };
 
     vm.sendForm = function () {
 
         vm.error = '';
-
         console.log('waiting...');
-        let p1 = $http.post('/api/packs', {
+        let p1 = $http.put('/api/packs/' + id, {
             name: vm.formModel.name.value
         }, {
             headers : {
@@ -48,9 +47,29 @@ function createPacksCtrl($http, $location) {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             //console.log('error add practic: ', err);
         });
+    };
+
+    function init() {
+
+        vm.error = '';
+        console.log('waiting...');
+
+
+        let p1 = $http.get('/api/practics/' + id, {
+            headers : {
+                token: localStorage.getItem('token')
+            }
+        });
+
+        p1.then(res=>{
+            //console.log('success!');
+            const oneRow = res.data;
+            vm.formModel.name.value = oneRow.name;
+            vm.validate();
+        }, err=>{
+            vm.error = 'Ошибка: ' + JSON.stringify(err);
+            //console.log('error add practic: ', err);
+        });
     }
-
-
-
-
+    init();
 }

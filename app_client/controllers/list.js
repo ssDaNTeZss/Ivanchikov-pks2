@@ -11,17 +11,22 @@ function listCtrl($http, $location, $rootScope) {
         }
     });
 
-    //
+
 
     p1.then(res=>{
         vm.list = res.data;
+        var d = res.data[0].dateStart;
+        var curr_date = d.getDate();
+        // vm.list.dateStart = curr_date;
+        // console.log('hello!');
+        console.log(curr_date);
     }, err=>{
         $location.path('/login');
         //vm.list = [];
         //console.log('error!', err);
     });
 
-    console.log('hello!');
+
 
   //  localStorage.setItem('test', 'ok');
 
