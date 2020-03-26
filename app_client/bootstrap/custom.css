@@ -1,0 +1,13 @@
+ul#super-menu {
+    margin-top: 10px;
+}
+
+ul#super-menu li a{
+    margin-right: 10%;
+}
+
+.bg-login-img {
+    background: url(/img/flat600x800.jpg);
+    background-position: center;
+    background-size: cover;
+}
