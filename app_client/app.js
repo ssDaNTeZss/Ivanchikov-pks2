@@ -35,6 +35,11 @@ function config($routeProvider){
             controller: 'deleteCtrl',
             controllerAs: 'vm'
         })
+        .when('/delete-packs/:id', {
+            templateUrl: 'views/delete-packs.html',
+            controller: 'deletePacksCtrl',
+            controllerAs: 'vm'
+        })
         .when('/signup', {
             templateUrl: 'views/signup.html',
             controller: 'signupCtrl',
@@ -62,6 +67,7 @@ angular
     .controller('updateCtrl', updateCtrl)
     .controller('updatePacksCtrl', updatePacksCtrl)
     .controller('deleteCtrl', deleteCtrl)
+    .controller('deletePacksCtrl', deletePacksCtrl)
     .controller('signupCtrl', signupCtrl)
     .controller('loginCtrl', loginCtrl)
     .controller('logoutCtrl', logoutCtrl)
