@@ -10,6 +10,11 @@ function config($routeProvider){
             controller: 'listPacksCtrl',
             controllerAs: 'vm'
         })
+        .when('/list-students', {
+            templateUrl: 'views/list-students.html',
+            controller: 'listStudentsCtrl',
+            controllerAs: 'vm'
+        })
         .when('/create', {
             templateUrl: 'views/create.html',
             controller: 'createCtrl',
@@ -62,6 +67,7 @@ angular
     .module('myApp', ['ngRoute'])
     .controller('listCtrl', listCtrl)
     .controller('listPacksCtrl', listPacksCtrl)
+    .controller('listStudentsCtrl', listStudentsCtrl)
     .controller('createCtrl', createCtrl)
     .controller('createPacksCtrl', createPacksCtrl)
     .controller('updateCtrl', updateCtrl)

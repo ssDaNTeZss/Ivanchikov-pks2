@@ -64,12 +64,12 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Журнал</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="/#!/list-students">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Обучающиеся</span></a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="/#!/list-packs">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Группы</span></a>
@@ -94,10 +94,10 @@
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                 <!--                <ng-include src="'views/mainMenu.html'"></ng-include>-->
-                <div class="sidebar-brand-text mx-3"><h5>Группы</h5></div>
+                <div class="sidebar-brand-text mx-3"><h5>Обучающиеся</h5></div>
 
                 <ul class="navbar-nav ml-auto">
-                    <a href="/#!/create-packs" class="btn btn-success btn-icon-split">
+                    <a href="/#!/create-students" class="btn btn-success btn-icon-split">
                     <span class="icon text-white-50">
                       <i class="fas fa-check"></i>
                     </span>
@@ -121,11 +121,13 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-                <div ng-hide="vm.list_packs.length" class="alert alert-primary" role="alert">
+                <div class="container-fluid">
+                    <h1>quyuygdjfhvkldflkhgdkgdfgdfghfg</h1>
+                <div ng-hide="vm.list_students.length" class="alert alert-primary" role="alert">
                     Пока нет ни одной записи. Добавьте что-нибудь
                 </div>
 
-                <table ng-show="vm.list_packs.length" class="table table-bordered dataTable">
+                <table ng-show="vm.list_students.length" class="table table-bordered dataTable">
                     <thead>
                     <tr role="row">
                         <th>Название</th>
@@ -133,8 +135,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="line in vm.list_packs">
-                        <td>{{line.name}}</td>
+                    <tr ng-repeat="line in vm.list_students">
+                        <td>{{line.pack}}</td>
+                        <td>{{line.fio}}</td>
                         <td>
                             <a href="/#!/update/{{line._id}}" class="btn btn-warning btn-icon-split btn-sm">
                                 <span class="icon text-white-50">
