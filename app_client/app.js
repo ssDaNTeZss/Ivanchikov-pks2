@@ -25,6 +25,11 @@ function config($routeProvider){
             controller: 'createPacksCtrl',
             controllerAs: 'vm'
         })
+        .when('/create-students', {
+            templateUrl: 'views/create-students.html',
+            controller: 'createStudentsCtrl',
+            controllerAs: 'vm'
+        })
         .when('/update/:id', {
             templateUrl: 'views/update.html',
             controller: 'updateCtrl',
@@ -70,6 +75,7 @@ angular
     .controller('listStudentsCtrl', listStudentsCtrl)
     .controller('createCtrl', createCtrl)
     .controller('createPacksCtrl', createPacksCtrl)
+    .controller('createStudentsCtrl', createStudentsCtrl)
     .controller('updateCtrl', updateCtrl)
     .controller('updatePacksCtrl', updatePacksCtrl)
     .controller('deleteCtrl', deleteCtrl)

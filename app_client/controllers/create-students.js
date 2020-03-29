@@ -1,11 +1,16 @@
-function createPacksCtrl($http, $location) {
+function createStudentsCtrl($http, $location) {
     let vm = this;
     vm.error = '';
 
     vm.formWasValidated = false;
 
     vm.formModel = {
-        name: {
+        // pack: {
+        //     valid: true,
+        //     infoText: '',
+        //     value: ''
+        // },
+        fio: {
             valid: true,
             infoText: '',
             value: ''
@@ -28,13 +33,13 @@ function createPacksCtrl($http, $location) {
         vm.error = '';
 
         console.log('waiting...');
-        let val = vm.formModel.name.value,
-            arr = val.split(' ');
+        let val = vm.formModel.fio.value,
+            arr = val.split(', ');
         console.log(arr);
         for(let i=0; i < arr.length; i++) {
-            let p1 = $http.post('/api/packs', {
-                //name: vm.formModel.name.value
-                name: arr[i]
+            let p1 = $http.post('/api/students', {
+                //fio: vm.formModel.fio.value
+                fio: arr[i]
             }, {
                 headers: {
                     token: localStorage.getItem('token')
@@ -43,7 +48,7 @@ function createPacksCtrl($http, $location) {
 
             p1.then(res => {
                 console.log('success!');
-                $location.path('/list-packs');
+                $location.path('/list-students');
             }, err => {
                 vm.error = 'Ошибка: ' + JSON.stringify(err);
                 //console.log('error add practic: ', err);

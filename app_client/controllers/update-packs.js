@@ -3,7 +3,6 @@ function updatePacksCtrl($http, $location, $routeParams) {
     vm.error = '';
     const id = $routeParams.id;
 
-
     vm.formWasValidated = false;
 
     vm.formModel = {
@@ -20,17 +19,16 @@ function updatePacksCtrl($http, $location, $routeParams) {
         const onlyLettersAndDigits = /^([-\.a-zа-яё \d]+)$/i;
 
         for (let field in vm.formModel){
-            if(field!=='dateStart' && field!=='dateFinish'){
                 vm.formModel[field].valid = onlyLettersAndDigits.test(vm.formModel[field].value);
                 vm.formModel[field].infoText = (vm.formModel[field].valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
                 vm.formWasValidated = vm.formWasValidated && vm.formModel[field].valid;
-            }
         }
     };
 
     vm.sendForm = function () {
 
         vm.error = '';
+
         console.log('waiting...');
         let p1 = $http.put('/api/packs/' + id, {
             name: vm.formModel.name.value
@@ -55,7 +53,7 @@ function updatePacksCtrl($http, $location, $routeParams) {
         console.log('waiting...');
 
 
-        let p1 = $http.get('/api/practics/' + id, {
+        let p1 = $http.get('/api/packs/' + id, {
             headers : {
                 token: localStorage.getItem('token')
             }
