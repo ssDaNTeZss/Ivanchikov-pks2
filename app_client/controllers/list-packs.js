@@ -11,15 +11,11 @@ function listPacksCtrl($http, $location, $rootScope) {
         }
     });
 
-    //
-
     p1.then(res=>{
         vm.list_packs = res.data;
     },
     err=>{
         $location.path('/');
-        // vm.list = [];
-        // console.log('error!', err);
     }
     );
 

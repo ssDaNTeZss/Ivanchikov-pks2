@@ -63,8 +63,8 @@ module.exports.update = async (req, res, next) => {
             h.sendJsonResponse(res,400, err);
         }
 
-        if(req.body.title){
-            pack.title = req.body.title;
+        if(req.body.name){
+            pack.name = req.body.name;
         }
 
         pack.save((err, pack) => {

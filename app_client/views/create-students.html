@@ -78,17 +78,25 @@
                 <form ng-class="(vm.formWasValidated) ? 'was-validated': ''" class="needs-validation"
                       ng-submit="vm.sendForm()" novalidate>
                     <div class="form-row">
-<!--                        <div class="col-md-3 mb-3">-->
-<!--                            <label for="name">Группа</label>-->
-<!--                            <select class="custom-select" name="mySelect" required>-->
-<!--                                <option value="">Open this select menu</option>-->
-<!--                            </select>-->
-<!--                        </div>-->
+                        <div class="col-md-3 mb-3">
+                            <label for="packSelect">Группа</label>
+                            <select ng-class="(vm.formModel.packSelect.valid) ? '': 'is-invalid'"
+                                    ng-model="vm.formModel.packSelect.value"
+                                    class="custom-select" id="packSelect" required>
+                                <option value="">Open this select menu</option>
+                                <option value="Open">Open</option>
+                            </select>
+<!--                            <textarea ng-class="(vm.formModel.pack.valid) ? '': 'is-invalid'"-->
+<!--                                      ng-model="vm.formModel.pack.value"-->
+<!--                                      type="text" class="form-control" id="pack" ng-keyup="vm.validate()">-->
+<!--                           </textarea>-->
+                        </div>
                         <div class="col-md-9 mb-9">
                             <label for="fio">ФИО (Фамилия, Имя, Отчество)</label>
-                            <textarea ng-class="(vm.formModel.fio.valid) ? '': 'is-invalid'"
+                           <textarea ng-class="(vm.formModel.fio.valid) ? '': 'is-invalid'"
                                    ng-model="vm.formModel.fio.value"
-                                      type="text" class="form-control" id="fio" ng-keyup="vm.validate()"></textarea>
+                                      type="text" class="form-control" id="fio" ng-keyup="vm.validate()">
+                           </textarea>
                             <div ng-class="(vm.formModel.fio.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
                                 {{vm.formModel.fio.infoText}}
                             </div>
@@ -102,6 +110,7 @@
                     </span>
                         <span class="text">Добавить</span>
                     </button>
+                    <h7>&nbsp&nbsp&nbsp Для добавления нескольких записей пишите их через ", " (запятая пробел).</h7>
                 </form>
 
                 <div ng-show="vm.error.length" class="alert alert-danger" role="alert">
