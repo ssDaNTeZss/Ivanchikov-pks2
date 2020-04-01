@@ -14,7 +14,6 @@ function createStudentsCtrl($http, $location) {
         packSelected: null
     };
 
-
     let p1 = $http.get('/api/packs', {
         headers: {
             token: localStorage.getItem('token')
@@ -23,7 +22,6 @@ function createStudentsCtrl($http, $location) {
 
     p1.then(res => {
             vm.formModel.pack = res.data;
-            // vm.formModel.pack.label = res.data.name
         },
         err => {
             $location.path('/');
