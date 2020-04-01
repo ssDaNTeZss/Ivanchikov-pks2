@@ -12,15 +12,15 @@ function deletePacksCtrl($http, $location, $routeParams) {
         vm.error = '';
         console.log('waiting...');
         let p1 = $http.delete('/api/packs/' + id, {
-            headers : {
+            headers: {
                 token: localStorage.getItem('token')
             }
         });
 
-        p1.then(res=>{
+        p1.then(res => {
             console.log('success!');
             $location.path('/list-packs');
-        }, err=>{
+        }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             //console.log('error : ', err);
         });
@@ -31,15 +31,15 @@ function deletePacksCtrl($http, $location, $routeParams) {
         console.log('waiting...');
 
         let p1 = $http.get('/api/packs/' + id, {
-            headers : {
+            headers: {
                 token: localStorage.getItem('token')
             }
         });
 
-        p1.then(res=>{
+        p1.then(res => {
             const oneRow = res.data;
             vm.formModel.name.value = oneRow.name;
-        }, err=>{
+        }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             //console.log('error: ', err);
         });

@@ -6,22 +6,22 @@ function listPacksCtrl($http, $location, $rootScope) {
 
     //console.log('waiting...');
     let p1 = $http.get('/api/packs', {
-        headers : {
+        headers: {
             token: localStorage.getItem('token')
         }
     });
 
-    p1.then(res=>{
-        vm.list_packs = res.data;
-    },
-    err=>{
-        $location.path('/');
-    }
+    p1.then(res => {
+            vm.list_packs = res.data;
+        },
+        err => {
+            $location.path('/');
+        }
     );
 
     //console.log('hello!');
 
-  //  localStorage.setItem('test', 'ok');
+    //  localStorage.setItem('test', 'ok');
 
     vm.test = localStorage.getItem('test');
 

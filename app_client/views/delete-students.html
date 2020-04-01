@@ -6,6 +6,9 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#!/">
+            <!--            <div class="sidebar-brand-icon rotate-n-15">-->
+            <!--                <i class="fas fa-laugh-wink"></i>-->
+            <!--            </div>-->
             <div class="sidebar-brand-text mx-3">Журнал присутствия на занятиях</div>
         </a>
 
@@ -14,16 +17,16 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="/#!/list.html">
+            <a class="nav-link" href="/#!/">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Журнал</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="/#!/list-students">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Обучающиеся</span></a>
         </li>
-        <li class="nav-item  active">
+        <li class="nav-item">
             <a class="nav-link" href="/#!/list-packs">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Группы</span></a>
@@ -48,11 +51,11 @@
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                 <!--                <ng-include src="'views/mainMenu.html'"></ng-include>-->
-                <div class="sidebar-brand-text mx-3"><h5>Группы -> Редактирование Записи(-ей)</h5></div>
+                <div class="sidebar-brand-text mx-3"><h5>Удаление Обучающегося</h5></div>
 
                 <ul class="navbar-nav ml-auto">
-                    <a href="/#!/list-packs" class="btn btn-light btn-icon-split">
-                    <span class="icon text-white-50">
+                    <a href="/#!/list-students" class="btn btn-light btn-icon-split">
+                    <span class="icon text-gray-600">
                       <i class="fas fa-arrow-left"></i>
                     </span>
                         <span class="text">Назад</span>
@@ -66,7 +69,6 @@
                     </span>
                         <span class="text">Выход</span>
                     </a>
-
                 </ul>
 
 
@@ -75,30 +77,27 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-                <form ng-class="(vm.formWasValidated) ? 'was-validated': ''" class="needs-validation"
-                      ng-submit="vm.sendForm()" novalidate>
+                <form ng-submit="vm.sendForm()" novalidate>
                     <div class="form-row">
-                        <div class="col-md-3 mb-4">
-                            <label for="name">Название</label>
-                            <input ng-class="(vm.formModel.name.valid) ? '': 'is-invalid'"
-                                   ng-model="vm.formModel.name.value"
-                                   type="text" class="form-control" id="name" ng-keyup="vm.validate()">
-                            <div ng-class="(vm.formModel.name.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
-                                {{vm.formModel.name.infoText}}
-                            </div>
+                        <div class="col-12" ng-hide="vm.error.length">
+                            <h3>Действительно удалить Обучающегося "{{vm.formModel.fio.value}}"?</h3>
                         </div>
                     </div>
-                    <button ng-disabled="!vm.formWasValidated" class="btn btn-warning btn-icon-split"
-                            type="submit"> <span
-                            class="icon text-white-50">
-                      <i class="fas fa-exclamation-triangle"></i>
+                    <!--                    <a class="btn btn-info" href="/#!/list-packs">Отмена</a>-->
+                    <a href="/#!/list-students" class="btn btn-light btn-icon-split">
+                    <span class="icon text-gray-600">
+                      <i class="fas fa-arrow-left"></i>
                     </span>
-                        <span class="text">Изменить</span>
+                        <span class="text">Отмена</span>
+                    </a>
+                    <!--                    <button ng-hide="vm.error.length" class="btn btn-danger" type="submit">Удалить</button>-->
+                    <button ng-hide="vm.error.length" class="btn btn-danger btn-icon-split" type="submit">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-trash"></i>
+                                </span>
+                        <span class="text">Удалить</span>
                     </button>
                 </form>
-                <div ng-show="vm.error.length" class="alert alert-danger" role="alert">
-                    {{vm.error}}
-                </div>
             </div>
         </div>
     </div>

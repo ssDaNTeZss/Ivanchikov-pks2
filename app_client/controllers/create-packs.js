@@ -16,10 +16,10 @@ function createPacksCtrl($http, $location) {
         vm.formWasValidated = true;
         const onlyLettersAndDigits = /^([-\.a-zа-яё \d]+)$/i;
         console.log(vm.formModel);
-        for (let field in vm.formModel){
-                vm.formModel[field].valid = onlyLettersAndDigits.test(vm.formModel[field].value);
-                vm.formModel[field].infoText = (vm.formModel[field].valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
-                vm.formWasValidated = vm.formWasValidated && vm.formModel[field].valid;
+        for (let field in vm.formModel) {
+            vm.formModel[field].valid = onlyLettersAndDigits.test(vm.formModel[field].value);
+            vm.formModel[field].infoText = (vm.formModel[field].valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
+            vm.formWasValidated = vm.formWasValidated && vm.formModel[field].valid;
         }
     };
 
@@ -31,7 +31,7 @@ function createPacksCtrl($http, $location) {
         let val = vm.formModel.name.value,
             arr = val.split(' ');
         console.log(arr);
-        for(let i=0; i < arr.length; i++) {
+        for (let i = 0; i < arr.length; i++) {
             let p1 = $http.post('/api/packs', {
                 //name: vm.formModel.name.value
                 name: arr[i]

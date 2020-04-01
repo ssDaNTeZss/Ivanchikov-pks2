@@ -24,10 +24,10 @@ function loginCtrl($http, $location, $scope) {
         vm.formWasValidated = true;
         const onlyLettersAndDigits = /^([-\.a-zа-яё \d]+)$/i;
 
-        for (let field in vm.formModel){
-                vm.formModel[field].valid = onlyLettersAndDigits.test(vm.formModel[field].value);
-                vm.formModel[field].infoText = (vm.formModel[field].valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
-                vm.formWasValidated = vm.formWasValidated && vm.formModel[field].valid;
+        for (let field in vm.formModel) {
+            vm.formModel[field].valid = onlyLettersAndDigits.test(vm.formModel[field].value);
+            vm.formModel[field].infoText = (vm.formModel[field].valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
+            vm.formWasValidated = vm.formWasValidated && vm.formModel[field].valid;
         }
     };
 
@@ -41,11 +41,11 @@ function loginCtrl($http, $location, $scope) {
             password: vm.formModel.password.value,
         });
 
-        p1.then(res=>{
+        p1.then(res => {
             const data = res.data;
             localStorage.setItem('token', data.token);
             $location.path('/');
-        }, err=>{
+        }, err => {
             console.log('error add practic: ', err);
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             // setTimeout(()=>{
@@ -54,8 +54,6 @@ function loginCtrl($http, $location, $scope) {
 
         });
     }
-
-
 
 
 }

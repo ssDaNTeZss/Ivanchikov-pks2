@@ -50,8 +50,8 @@ function updateCtrl($http, $location, $routeParams) {
         vm.formWasValidated = true;
         const onlyLettersAndDigits = /^([-\.a-zа-яё \d]+)$/i;
 
-        for (let field in vm.formModel){
-            if(field!=='dateStart' && field!=='dateFinish'){
+        for (let field in vm.formModel) {
+            if (field !== 'dateStart' && field !== 'dateFinish') {
                 vm.formModel[field].valid = onlyLettersAndDigits.test(vm.formModel[field].value);
                 vm.formModel[field].infoText = (vm.formModel[field].valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
                 vm.formWasValidated = vm.formWasValidated && vm.formModel[field].valid;
@@ -73,15 +73,15 @@ function updateCtrl($http, $location, $routeParams) {
             dateFinish: vm.formModel.dateFinish.value,
             mark: 0
         }, {
-            headers : {
+            headers: {
                 token: localStorage.getItem('token')
             }
         });
 
-        p1.then(res=>{
+        p1.then(res => {
             console.log('success!');
             $location.path('/');
-        }, err=>{
+        }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             //console.log('error add practic: ', err);
         });
@@ -94,12 +94,12 @@ function updateCtrl($http, $location, $routeParams) {
 
 
         let p1 = $http.get('/api/practics/' + id, {
-            headers : {
+            headers: {
                 token: localStorage.getItem('token')
             }
         });
 
-        p1.then(res=>{
+        p1.then(res => {
             //console.log('success!');
             const oneRow = res.data;
             vm.formModel.name.value = oneRow.name;
@@ -110,7 +110,7 @@ function updateCtrl($http, $location, $routeParams) {
             vm.formModel.dateStart.value = new Date(oneRow.dateStart);
             vm.formModel.dateFinish.value = new Date(oneRow.dateFinish);
             vm.validate();
-        }, err=>{
+        }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             //console.log('error add practic: ', err);
         });

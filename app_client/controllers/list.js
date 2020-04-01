@@ -6,29 +6,27 @@ function listCtrl($http, $location, $rootScope) {
 
     //console.log('waiting...');
     let p1 = $http.get('/api/practics', {
-        headers : {
+        headers: {
             token: localStorage.getItem('token')
         }
     });
 
 
-
-    p1.then(res=>{
+    p1.then(res => {
         vm.list = res.data;
         var d = res.data[0].dateStart;
         var curr_date = d.getDate();
         // vm.list.dateStart = curr_date;
         // console.log('hello!');
         console.log(curr_date);
-    }, err=>{
+    }, err => {
         $location.path('/login');
         //vm.list = [];
         //console.log('error!', err);
     });
 
 
-
-  //  localStorage.setItem('test', 'ok');
+    //  localStorage.setItem('test', 'ok');
 
     vm.test = localStorage.getItem('test');
 

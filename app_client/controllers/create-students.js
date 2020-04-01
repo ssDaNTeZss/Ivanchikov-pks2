@@ -16,16 +16,16 @@ function createStudentsCtrl($http, $location) {
 
 
     let p1 = $http.get('/api/packs', {
-        headers : {
+        headers: {
             token: localStorage.getItem('token')
         }
     });
 
-    p1.then(res=>{
+    p1.then(res => {
             vm.formModel.pack = res.data;
             // vm.formModel.pack.label = res.data.name
         },
-        err=>{
+        err => {
             $location.path('/');
         }
     );
@@ -35,10 +35,10 @@ function createStudentsCtrl($http, $location) {
         vm.formWasValidated = true;
         const onlyLettersAndDigits = /^([-\.a-zа-яё \d]+)$/i;
         console.log(vm.formModel);
-        for (let field in vm.formModel){
-                vm.formModel.name.valid = onlyLettersAndDigits.test(vm.formModel.name.value);
-                vm.formModel.name.infoText = (vm.formModel.name.valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
-                vm.formWasValidated = vm.formWasValidated && vm.formModel.name.valid;
+        for (let field in vm.formModel) {
+            vm.formModel.name.valid = onlyLettersAndDigits.test(vm.formModel.name.value);
+            vm.formModel.name.infoText = (vm.formModel.name.valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
+            vm.formWasValidated = vm.formWasValidated && vm.formModel.name.valid;
         }
     };
 
@@ -50,7 +50,7 @@ function createStudentsCtrl($http, $location) {
         let val = vm.formModel.fio.value,
             arr = val.split(', ');
         console.log(arr);
-        for(let i=0; i < arr.length; i++) {
+        for (let i = 0; i < arr.length; i++) {
             let p1 = $http.post('/api/students', {
                 pack: vm.formModel.packSelected.name,
                 fio: arr[i]

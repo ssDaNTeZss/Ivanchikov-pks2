@@ -5,22 +5,22 @@ function listStudentsCtrl($http, $location, $rootScope) {
     vm.title = "Список практик";
 
     let p1 = $http.get('/api/students', {
-        headers : {
+        headers: {
             token: localStorage.getItem('token')
         }
     });
 
-    p1.then(res=>{
-        vm.list_students = res.data;
-    },
-    err=>{
-        $location.path('/');
-    }
+    p1.then(res => {
+            vm.list_students = res.data;
+        },
+        err => {
+            $location.path('/');
+        }
     );
 
     //console.log('hello!');
 
-  //  localStorage.setItem('test', 'ok');
+    //  localStorage.setItem('test', 'ok');
 
     vm.test = localStorage.getItem('test');
 

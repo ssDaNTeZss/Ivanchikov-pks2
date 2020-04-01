@@ -80,18 +80,19 @@
 
                             <select id="packSelect" class="custom-select"
                                     ng-class="(vm.formModel.packSelect.valid) ? '': 'is-invalid'"
-                                    required ng-options="group as group.name for group in vm.formModel.pack track by group._id"
+                                    required
+                                    ng-options="group as group.name for group in vm.formModel.pack track by group._id"
                                     ng-model="vm.formModel.packSelected">
                                 <option value="">Open this select menu</option>
                             </select>
-<!--                            <pre>-->
-<!--                                {{vm.formModel | json}}-->
-<!--                            </pre>-->
+                            <!--                            <pre>-->
+                            <!--                                {{vm.formModel | json}}-->
+                            <!--                            </pre>-->
                         </div>
                         <div class="col-md-9 mb-9">
                             <label for="fio">ФИО (Фамилия, Имя, Отчество)</label>
-                           <textarea ng-class="(vm.formModel.fio.valid) ? '': 'is-invalid'"
-                                   ng-model="vm.formModel.fio.value"
+                            <textarea ng-class="(vm.formModel.fio.valid) ? '': 'is-invalid'"
+                                      ng-model="vm.formModel.fio.value"
                                       type="text" class="form-control" id="fio" ng-keyup="vm.validate()">
                            </textarea>
                             <div ng-class="(vm.formModel.fio.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">

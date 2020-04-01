@@ -18,10 +18,10 @@ function updatePacksCtrl($http, $location, $routeParams) {
         vm.formWasValidated = true;
         const onlyLettersAndDigits = /^([-\.a-zа-яё \d]+)$/i;
 
-        for (let field in vm.formModel){
-                vm.formModel[field].valid = onlyLettersAndDigits.test(vm.formModel[field].value);
-                vm.formModel[field].infoText = (vm.formModel[field].valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
-                vm.formWasValidated = vm.formWasValidated && vm.formModel[field].valid;
+        for (let field in vm.formModel) {
+            vm.formModel[field].valid = onlyLettersAndDigits.test(vm.formModel[field].value);
+            vm.formModel[field].infoText = (vm.formModel[field].valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
+            vm.formWasValidated = vm.formWasValidated && vm.formModel[field].valid;
         }
     };
 
@@ -33,15 +33,15 @@ function updatePacksCtrl($http, $location, $routeParams) {
         let p1 = $http.put('/api/packs/' + id, {
             name: vm.formModel.name.value
         }, {
-            headers : {
+            headers: {
                 token: localStorage.getItem('token')
             }
         });
 
-        p1.then(res=>{
+        p1.then(res => {
             console.log('success!');
             $location.path('/list-packs');
-        }, err=>{
+        }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             //console.log('error add practic: ', err);
         });
@@ -54,20 +54,21 @@ function updatePacksCtrl($http, $location, $routeParams) {
 
 
         let p1 = $http.get('/api/packs/' + id, {
-            headers : {
+            headers: {
                 token: localStorage.getItem('token')
             }
         });
 
-        p1.then(res=>{
+        p1.then(res => {
             //console.log('success!123');
             const oneRow = res.data;
             vm.formModel.name.value = oneRow.name;
             vm.validate();
-        }, err=>{
+        }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             //console.log('error add practic: ', err);
         });
     }
+
     init();
 }

@@ -49,8 +49,8 @@ function createCtrl($http, $location) {
         vm.formWasValidated = true;
         const onlyLettersAndDigits = /^([-\.a-zа-яё \d]+)$/i;
 
-        for (let field in vm.formModel){
-            if(field!=='dateStart' && field!=='dateFinish'){
+        for (let field in vm.formModel) {
+            if (field !== 'dateStart' && field !== 'dateFinish') {
                 vm.formModel[field].valid = onlyLettersAndDigits.test(vm.formModel[field].value);
                 vm.formModel[field].infoText = (vm.formModel[field].valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
                 vm.formWasValidated = vm.formWasValidated && vm.formModel[field].valid;
@@ -73,21 +73,19 @@ function createCtrl($http, $location) {
             dateFinish: vm.formModel.dateFinish.value,
             mark: 0
         }, {
-            headers : {
+            headers: {
                 token: localStorage.getItem('token')
             }
         });
 
-        p1.then(res=>{
+        p1.then(res => {
             console.log('success!');
             $location.path('/');
-        }, err=>{
+        }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             //console.log('error add practic: ', err);
         });
     }
-
-
 
 
 }

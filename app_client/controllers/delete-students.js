@@ -1,19 +1,16 @@
-function deleteCtrl($http, $location, $routeParams) {
+function deleteStudentsCtrl($http, $location, $routeParams) {
     let vm = this;
     vm.error = '';
-    vm.title = "Удаление";
     const id = $routeParams.id;
 
     vm.formModel = {
-        name: {},
-        dateStart: {},
-        dateFinish: {}
+        fio: {}
     };
 
     vm.sendForm = function () {
         vm.error = '';
         console.log('waiting...');
-        let p1 = $http.delete('/api/practics/' + id, {
+        let p1 = $http.delete('/api/students/' + id, {
             headers: {
                 token: localStorage.getItem('token')
             }
@@ -21,7 +18,7 @@ function deleteCtrl($http, $location, $routeParams) {
 
         p1.then(res => {
             console.log('success!');
-            $location.path('/');
+            $location.path('/list-students');
         }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             //console.log('error : ', err);
@@ -32,7 +29,7 @@ function deleteCtrl($http, $location, $routeParams) {
         vm.error = '';
         console.log('waiting...');
 
-        let p1 = $http.get('/api/practics/' + id, {
+        let p1 = $http.get('/api/students/' + id, {
             headers: {
                 token: localStorage.getItem('token')
             }
@@ -40,9 +37,7 @@ function deleteCtrl($http, $location, $routeParams) {
 
         p1.then(res => {
             const oneRow = res.data;
-            vm.formModel.name.value = oneRow.name;
-            vm.formModel.dateStart.value = new Date(oneRow.dateStart);
-            vm.formModel.dateFinish.value = new Date(oneRow.dateFinish);
+            vm.formModel.fio.value = oneRow.fio;
         }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             //console.log('error: ', err);
