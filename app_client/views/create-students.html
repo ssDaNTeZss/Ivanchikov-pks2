@@ -6,9 +6,6 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#!/">
-            <!--            <div class="sidebar-brand-icon rotate-n-15">-->
-            <!--                <i class="fas fa-laugh-wink"></i>-->
-            <!--            </div>-->
             <div class="sidebar-brand-text mx-3">Журнал присутствия на занятиях</div>
         </a>
 
@@ -80,16 +77,16 @@
                     <div class="form-row">
                         <div class="col-md-3 mb-3">
                             <label for="packSelect">Группа</label>
-                            <select ng-class="(vm.formModel.packSelect.valid) ? '': 'is-invalid'"
-                                    ng-model="vm.formModel.packSelect.value"
-                                    class="custom-select" id="packSelect" required>
+
+                            <select id="packSelect" class="custom-select"
+                                    ng-class="(vm.formModel.packSelect.valid) ? '': 'is-invalid'"
+                                    required ng-options="group as group.name for group in vm.formModel.pack track by group._id"
+                                    ng-model="vm.formModel.packSelected">
                                 <option value="">Open this select menu</option>
-                                <option value="Open">Open</option>
                             </select>
-<!--                            <textarea ng-class="(vm.formModel.pack.valid) ? '': 'is-invalid'"-->
-<!--                                      ng-model="vm.formModel.pack.value"-->
-<!--                                      type="text" class="form-control" id="pack" ng-keyup="vm.validate()">-->
-<!--                           </textarea>-->
+<!--                            <pre>-->
+<!--                                {{vm.formModel | json}}-->
+<!--                            </pre>-->
                         </div>
                         <div class="col-md-9 mb-9">
                             <label for="fio">ФИО (Фамилия, Имя, Отчество)</label>

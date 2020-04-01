@@ -5,37 +5,31 @@ function createStudentsCtrl($http, $location) {
     vm.formWasValidated = false;
 
     vm.formModel = {
-        pack: {
-            valid: true,
-            infoText: '',
-            value: ''
-        },
+        pack: null,
         fio: {
             valid: true,
             infoText: '',
             value: ''
-        }
+        },
+        packSelected: null
     };
 
-    // let p1 = $http.get('/api/packs', {
-    //     headers : {
-    //         token: localStorage.getItem('token')
-    //     }
-    // });
-    //
-    // p1.then(res=>{
-    //         vm.list_packs = res.data;
-    //     },
-    //     err=>{
-    //         $location.path('/');
-    //     }
-    // );
 
-    let objSel = document.getElementById("packSelect");
+    let p1 = $http.get('/api/packs', {
+        headers : {
+            token: localStorage.getItem('token')
+        }
+    });
 
-    //console.log(vm.list_packs.name.value);
-    //Создаем новый объект Option и заносим его в коллекцию options
-    //  objSel.options[2] = new Option(vm.list_packs.name.value, vm.list_packs.name.value);
+    p1.then(res=>{
+            vm.formModel.pack = res.data;
+            // vm.formModel.pack.label = res.data.name
+        },
+        err=>{
+            $location.path('/');
+        }
+    );
+
 
     vm.validate = function () {
         vm.formWasValidated = true;
@@ -58,7 +52,7 @@ function createStudentsCtrl($http, $location) {
         console.log(arr);
         for(let i=0; i < arr.length; i++) {
             let p1 = $http.post('/api/students', {
-                pack: vm.formModel.packSelect.value,
+                pack: vm.formModel.packSelected.name,
                 fio: arr[i]
             }, {
                 headers: {
