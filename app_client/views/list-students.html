@@ -76,29 +76,32 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 <div class="container-fluid">
+                    <div class="form-row">
+                        <div class="col-md-4 mb-4">
+                            <!--                            <label for="packSelect">Группа</label>-->
+                            <select id="packSelect" class="custom-select"
+                                    ng-class="(vm.formModel.packSelect.valid) ? '': 'is-invalid'"
+                                    required
+                                    ng-options="group as group.name for group in vm.formModel.pack track by group._id"
+                                    ng-model="vm.formModel.packSelected">
+                                <option value="">Откройте это меню чтобы выбрать группу</option>
+                            </select>
+                        </div>
+                        <!--                        <pre>-->
+                        <!--                            {{vm.formModel.packSelected.name | json}}-->
+                        <!--                        </pre>-->
+                        <div class="col-md-3 mb-3">
+                            <button id="addButton" class="btn btn-primary btn-icon-split" type="submit">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                                <span class="text">Найти</span>
+                            </button>
+                        </div>
+                    </div>
                     <div ng-hide="vm.list_students.length" class="alert alert-primary" role="alert">
                         Пока нет ни одной записи. Добавьте что-нибудь
                     </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="packSelect">Группа</label>
-                        <select id="packSelect" class="custom-select"
-                                ng-class="(vm.formModel.packSelect.valid) ? '': 'is-invalid'"
-                                required
-                                ng-options="group as group.name for group in vm.formModel.pack track by group._id"
-                                ng-model="vm.formModel.packSelected">
-                            <option value="">Open this select menu</option>
-                        </select>
-                        <pre>
-                            {{vm.formModel.packSelected.name | json}}
-                        </pre>
-                        <button class="btn btn-primary btn-icon-split"
-                                type="submit"> <span class="icon text-white-50">
-                      <i class="fas fa-check"></i>
-                    </span>
-                            <span class="text">Добавить</span>
-                        </button>
-                    </div>
-
                     <table ng-show="vm.list_students.length" class="table table-bordered dataTable">
                         <thead>
                         <tr role="row">
