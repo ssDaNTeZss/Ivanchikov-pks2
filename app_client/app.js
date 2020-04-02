@@ -40,6 +40,11 @@ function config($routeProvider){
             controller: 'updatePacksCtrl',
             controllerAs: 'vm'
         })
+        .when('/update-students/:id', {
+            templateUrl: 'views/update-students.html',
+            controller: 'updateStudentsCtrl',
+            controllerAs: 'vm'
+        })
         .when('/delete/:id', {
             templateUrl: 'views/delete.html',
             controller: 'deleteCtrl',
@@ -83,6 +88,7 @@ angular
     .controller('createStudentsCtrl', createStudentsCtrl)
     .controller('updateCtrl', updateCtrl)
     .controller('updatePacksCtrl', updatePacksCtrl)
+    .controller('updateStudentsCtrl', updateStudentsCtrl)
     .controller('deleteCtrl', deleteCtrl)
     .controller('deletePacksCtrl', deletePacksCtrl)
     .controller('deleteStudentsCtrl', deleteStudentsCtrl)

@@ -34,9 +34,9 @@ function createStudentsCtrl($http, $location) {
         const onlyLettersAndDigits = /^([-\.a-zа-яё \d]+)$/i;
         console.log(vm.formModel);
         for (let field in vm.formModel) {
-            vm.formModel.name.valid = onlyLettersAndDigits.test(vm.formModel.name.value);
-            vm.formModel.name.infoText = (vm.formModel.name.valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
-            vm.formWasValidated = vm.formWasValidated && vm.formModel.name.valid;
+            vm.formModel[field].valid = onlyLettersAndDigits.test(vm.formModel[field].value);
+            vm.formModel[field].infoText = (vm.formModel[field].valid) ? 'Введено верно' : 'Допускаются только буквы и цифры';
+            vm.formWasValidated = vm.formWasValidated && vm.formModel[field].valid;
         }
     };
 

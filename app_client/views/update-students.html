@@ -14,7 +14,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="/#!/">
+            <a class="nav-link" href="/#!/list.html">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Журнал</span></a>
         </li>
@@ -41,18 +41,15 @@
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-
         <!-- Main Content -->
         <div id="content">
-
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                <!--                <ng-include src="'views/mainMenu.html'"></ng-include>-->
-                <div class="sidebar-brand-text mx-3"><h5>Удаление Обучающегося</h5></div>
+                <div class="sidebar-brand-text mx-3"><h5>Обучающиеся -> Редактирование Записи(-ей)</h5></div>
 
                 <ul class="navbar-nav ml-auto">
-                    <a href="/#!/list-students" class="btn btn-light btn-icon-split">
-                    <span class="icon text-gray-600">
+                    <a href="/#!/list-packs" class="btn btn-light btn-icon-split">
+                    <span class="icon text-white-50">
                       <i class="fas fa-arrow-left"></i>
                     </span>
                         <span class="text">Назад</span>
@@ -67,34 +64,44 @@
                         <span class="text">Выход</span>
                     </a>
                 </ul>
-
-
             </nav>
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-                <form ng-submit="vm.sendForm()" novalidate>
+                <form ng-class="(vm.formWasValidated) ? 'was-validated': ''" class="needs-validation"
+                      ng-submit="vm.sendForm()" novalidate>
                     <div class="form-row">
-                        <div class="col-12" ng-hide="vm.error.length">
-                            <h3>Действительно удалить обучающегося группы "{{vm.formModel.pack.value}} - {{vm.formModel.fio.value}}"?</h3>
+                        <div class="col-md-3 mb-4">
+                            <label for="pack">Группа</label>
+                            <input ng-class="(vm.formModel.pack.valid) ? '': 'is-invalid'"
+                                   ng-model="vm.formModel.pack.value"
+                                   type="text" class="form-control" id="pack" ng-keyup="vm.validate()">
+                            <div ng-class="(vm.formModel.pack.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
+                                {{vm.formModel.pack.infoText}}
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <label for="fio">ФИО (Фамилия, Имя, Отчество)</label>
+                            <input ng-class="(vm.formModel.fio.valid) ? '': 'is-invalid'"
+                                   ng-model="vm.formModel.fio.value"
+                                   type="text" class="form-control" id="fio" ng-keyup="vm.validate()">
+                            <div ng-class="(vm.formModel.fio.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
+                                {{vm.formModel.name.infoText}}
+                            </div>
                         </div>
                     </div>
-                    <!--                    <a class="btn btn-info" href="/#!/list-packs">Отмена</a>-->
-                    <a href="/#!/list-students" class="btn btn-light btn-icon-split">
-                    <span class="icon text-gray-600">
-                      <i class="fas fa-arrow-left"></i>
+                    <button ng-disabled="!vm.formWasValidated" class="btn btn-warning btn-icon-split"
+                            type="submit"> <span
+                            class="icon text-white-50">
+                      <i class="fas fa-exclamation-triangle"></i>
                     </span>
-                        <span class="text">Отмена</span>
-                    </a>
-                    <!--                    <button ng-hide="vm.error.length" class="btn btn-danger" type="submit">Удалить</button>-->
-                    <button ng-hide="vm.error.length" class="btn btn-danger btn-icon-split" type="submit">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-trash"></i>
-                                </span>
-                        <span class="text">Удалить</span>
+                        <span class="text">Изменить</span>
                     </button>
                 </form>
+                <div ng-show="vm.error.length" class="alert alert-danger" role="alert">
+                    {{vm.error}}
+                </div>
             </div>
         </div>
     </div>

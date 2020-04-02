@@ -4,7 +4,8 @@ function deleteStudentsCtrl($http, $location, $routeParams) {
     const id = $routeParams.id;
 
     vm.formModel = {
-        fio: {}
+        fio: {},
+        pack: {}
     };
 
     vm.sendForm = function () {
@@ -38,6 +39,7 @@ function deleteStudentsCtrl($http, $location, $routeParams) {
         p1.then(res => {
             const oneRow = res.data;
             vm.formModel.fio.value = oneRow.fio;
+            vm.formModel.pack.value = oneRow.pack;
         }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
             //console.log('error: ', err);
