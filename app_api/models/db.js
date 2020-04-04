@@ -60,5 +60,6 @@ require('./config');
 require('./practic');
 require('./pack');
 require('./student');
+require('./absenteeism');
 require('./user');
 require('./token');

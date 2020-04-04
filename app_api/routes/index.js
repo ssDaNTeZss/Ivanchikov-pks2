@@ -3,6 +3,7 @@ var router = express.Router();
 let ctrlPractics = require('../controllers/practics');
 let ctrlPacks = require('../controllers/packs');
 let ctrlStudents = require('../controllers/students');
+let ctrlAbsenteeisms = require('../controllers/absenteeisms');
 let ctrlAuth = require('../controllers/auth');
 
 router.get('/practics', ctrlPractics.getAll);
@@ -22,6 +23,12 @@ router.get('/students/:id', ctrlStudents.getOne);
 router.post('/students', ctrlStudents.create);
 router.put('/students/:id', ctrlStudents.update);
 router.delete('/students/:id', ctrlStudents.delete);
+
+router.get('/absenteeisms', ctrlAbsenteeisms.getAll);
+router.get('/absenteeisms/:id', ctrlAbsenteeisms.getOne);
+router.post('/absenteeisms', ctrlAbsenteeisms.create);
+router.put('/absenteeisms/:id', ctrlAbsenteeisms.update);
+router.delete('/absenteeisms/:id', ctrlAbsenteeisms.delete);
 
 router.post('/signup', ctrlAuth.signup);
 router.post('/login', ctrlAuth.login);

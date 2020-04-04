@@ -1,8 +1,8 @@
 function config($routeProvider){
     $routeProvider
         .when('/', {
-            templateUrl: 'views/list.html',
-            controller: 'listCtrl',
+            templateUrl: 'views/list-absenteeisms.html',
+            controller: 'listAbsenteeismsCtrl',
             controllerAs: 'vm'
         })
         .when('/list-packs', {
@@ -15,9 +15,9 @@ function config($routeProvider){
             controller: 'listStudentsCtrl',
             controllerAs: 'vm'
         })
-        .when('/create', {
-            templateUrl: 'views/create.html',
-            controller: 'createCtrl',
+        .when('/create-absenteeisms', {
+            templateUrl: 'views/create-absenteeisms.html',
+            controller: 'createAbsenteeismsCtrl',
             controllerAs: 'vm'
         })
         .when('/create-packs', {
@@ -80,10 +80,10 @@ function config($routeProvider){
 
 angular
     .module('myApp', ['ngRoute'])
-    .controller('listCtrl', listCtrl)
+    .controller('listAbsenteeismsCtrl', listAbsenteeismsCtrl)
     .controller('listPacksCtrl', listPacksCtrl)
     .controller('listStudentsCtrl', listStudentsCtrl)
-    .controller('createCtrl', createCtrl)
+    .controller('createAbsenteeismsCtrl', createAbsenteeismsCtrl)
     .controller('createPacksCtrl', createPacksCtrl)
     .controller('createStudentsCtrl', createStudentsCtrl)
     .controller('updateCtrl', updateCtrl)
