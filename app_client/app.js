@@ -45,6 +45,11 @@ function config($routeProvider){
             controller: 'updateStudentsCtrl',
             controllerAs: 'vm'
         })
+        .when('/update-absenteeisms/:id', {
+            templateUrl: 'views/update-absenteeisms.html',
+            controller: 'updateAbsenteeismsCtrl',
+            controllerAs: 'vm'
+        })
         .when('/delete/:id', {
             templateUrl: 'views/delete.html',
             controller: 'deleteCtrl',
@@ -58,6 +63,11 @@ function config($routeProvider){
         .when('/delete-students/:id', {
             templateUrl: 'views/delete-students.html',
             controller: 'deleteStudentsCtrl',
+            controllerAs: 'vm'
+        })
+        .when('/delete-absenteeisms/:id', {
+            templateUrl: 'views/delete-absenteeisms.html',
+            controller: 'deleteAbsenteeismsCtrl',
             controllerAs: 'vm'
         })
         .when('/signup', {
@@ -89,9 +99,11 @@ angular
     .controller('updateCtrl', updateCtrl)
     .controller('updatePacksCtrl', updatePacksCtrl)
     .controller('updateStudentsCtrl', updateStudentsCtrl)
+    .controller('updateAbsenteeismsCtrl', updateAbsenteeismsCtrl)
     .controller('deleteCtrl', deleteCtrl)
     .controller('deletePacksCtrl', deletePacksCtrl)
     .controller('deleteStudentsCtrl', deleteStudentsCtrl)
+    .controller('deleteAbsenteeismsCtrl', deleteAbsenteeismsCtrl)
     .controller('signupCtrl', signupCtrl)
     .controller('loginCtrl', loginCtrl)
     .controller('logoutCtrl', logoutCtrl)

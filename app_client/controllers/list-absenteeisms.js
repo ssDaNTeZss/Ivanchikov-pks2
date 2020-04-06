@@ -1,7 +1,6 @@
 function listAbsenteeismsCtrl($http, $location, $rootScope) {
 
     let vm = this;
-    vm.title = "Список практик";
 
     vm.formWasValidated = false;
 
@@ -12,7 +11,17 @@ function listAbsenteeismsCtrl($http, $location, $rootScope) {
             infoText: '',
             value: ''
         },
-        packSelected: null
+        packSelected: null,
+        dateSkip: {
+            valid: true,
+            infoText: '',
+            value: new Date()
+        },
+        skipTime: {
+            valid: true,
+            infoText: '',
+            value: ''
+        }
     };
 
     let p2 = $http.get('/api/packs', {
@@ -29,7 +38,7 @@ function listAbsenteeismsCtrl($http, $location, $rootScope) {
         }
     );
 
-    let p1 = $http.get('/api/students', {
+    let p1 = $http.get('/api/absenteeisms', {
         headers: {
             token: localStorage.getItem('token')
         }
@@ -43,18 +52,14 @@ function listAbsenteeismsCtrl($http, $location, $rootScope) {
 
     addButton.onclick = function () {
         p1.then(res => {
-                //console.log(vm.formModel.packSelected);
-                //vm.list_st = res.data;
                 let val = res.data,
                     mas = [];
                 for (let i = 0; i < val.length; i++) {
                     if (val[i].pack === vm.formModel.packSelected.name) {
-                        //console.log(val[i]);
                         mas.push(val[i]);
                     }
                 }
                 vm.list_students = mas;
-                //console.log(mas);
             },
             err => {
                 $location.path('/');

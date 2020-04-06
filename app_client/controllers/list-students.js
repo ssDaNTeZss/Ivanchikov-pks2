@@ -1,8 +1,7 @@
 function listStudentsCtrl($http, $location, $rootScope) {
 
     let vm = this;
-    vm.title = "Список практик";
-
+    vm.title = "Список Обучающихся";
     vm.formWasValidated = false;
 
     vm.formModel = {
@@ -20,7 +19,6 @@ function listStudentsCtrl($http, $location, $rootScope) {
             token: localStorage.getItem('token')
         }
     });
-
     p2.then(res => {
             vm.formModel.pack = res.data;
         },
@@ -28,13 +26,11 @@ function listStudentsCtrl($http, $location, $rootScope) {
             $location.path('/');
         }
     );
-
     let p1 = $http.get('/api/students', {
         headers: {
             token: localStorage.getItem('token')
         }
     });
-
     p1.then(res => {
         vm.list_students = res.data;
     }, err => {

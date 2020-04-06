@@ -30,7 +30,7 @@ exports.config = {
         defaultTimeoutInterval: '600000',
     },
     params: {
-        user: 'user01',
-        password: '123456',
+        user: 'user',
+        password: 'user',
     },
 };

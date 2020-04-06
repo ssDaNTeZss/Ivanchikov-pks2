@@ -46,7 +46,8 @@ function loginCtrl($http, $location, $scope) {
             $location.path('/');
         }, err => {
             console.log('error add practic: ', err);
-            vm.error = 'Ошибка: ' + JSON.stringify(err);
+            //vm.error = 'Ошибка: ' + JSON.stringify(err);
+            vm.error = 'Неверно указан логин или пароль!';
             // setTimeout(()=>{
             //     $scope.$apply();
             // },10);
