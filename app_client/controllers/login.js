@@ -20,7 +20,6 @@ function loginCtrl($http, $location, $scope) {
     };
 
     vm.validate = function () {
-
         vm.formWasValidated = true;
         const onlyLettersAndDigits = /^([-\.a-zа-яё \d]+)$/i;
 
@@ -54,6 +53,4 @@ function loginCtrl($http, $location, $scope) {
 
         });
     }
-
-
 }

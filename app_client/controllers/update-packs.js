@@ -43,7 +43,6 @@ function updatePacksCtrl($http, $location, $routeParams) {
             $location.path('/list-packs');
         }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
-            //console.log('error add practic: ', err);
         });
     };
 
@@ -60,15 +59,12 @@ function updatePacksCtrl($http, $location, $routeParams) {
         });
 
         p1.then(res => {
-            //console.log('success!123');
             const oneRow = res.data;
             vm.formModel.name.value = oneRow.name;
             vm.validate();
         }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
-            //console.log('error add practic: ', err);
         });
     }
-
     init();
 }

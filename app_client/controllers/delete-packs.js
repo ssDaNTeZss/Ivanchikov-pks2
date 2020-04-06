@@ -22,7 +22,6 @@ function deletePacksCtrl($http, $location, $routeParams) {
             $location.path('/list-packs');
         }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
-            //console.log('error : ', err);
         });
     };
 
@@ -41,11 +40,7 @@ function deletePacksCtrl($http, $location, $routeParams) {
             vm.formModel.name.value = oneRow.name;
         }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
-            //console.log('error: ', err);
         });
     }
-
     init();
-
-
 }

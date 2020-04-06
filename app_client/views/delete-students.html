@@ -47,7 +47,6 @@
 
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                <!--                <ng-include src="'views/mainMenu.html'"></ng-include>-->
                 <div class="sidebar-brand-text mx-3"><h5>Удаление Обучающегося</h5></div>
 
                 <ul class="navbar-nav ml-auto">
@@ -80,14 +79,12 @@
                             <h3>Действительно удалить обучающегося группы "{{vm.formModel.pack.value}} - {{vm.formModel.fio.value}}"?</h3>
                         </div>
                     </div>
-                    <!--                    <a class="btn btn-info" href="/#!/list-packs">Отмена</a>-->
                     <a href="/#!/list-students" class="btn btn-light btn-icon-split">
                     <span class="icon text-gray-600">
                       <i class="fas fa-arrow-left"></i>
                     </span>
                         <span class="text">Отмена</span>
                     </a>
-                    <!--                    <button ng-hide="vm.error.length" class="btn btn-danger" type="submit">Удалить</button>-->
                     <button ng-hide="vm.error.length" class="btn btn-danger btn-icon-split" type="submit">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-trash"></i>

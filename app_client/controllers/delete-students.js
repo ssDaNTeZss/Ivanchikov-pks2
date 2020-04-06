@@ -22,7 +22,6 @@ function deleteStudentsCtrl($http, $location, $routeParams) {
             $location.path('/list-students');
         }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
-            //console.log('error : ', err);
         });
     };
 
@@ -42,11 +41,7 @@ function deleteStudentsCtrl($http, $location, $routeParams) {
             vm.formModel.pack.value = oneRow.pack;
         }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
-            //console.log('error: ', err);
         });
     }
-
     init();
-
-
 }

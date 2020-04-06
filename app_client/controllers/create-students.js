@@ -63,7 +63,6 @@ function createStudentsCtrl($http, $location) {
                 $location.path('/list-students');
             }, err => {
                 vm.error = 'Ошибка: ' + JSON.stringify(err);
-                //console.log('error add practic: ', err);
             });
         }
     }

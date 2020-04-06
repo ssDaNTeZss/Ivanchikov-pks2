@@ -25,7 +25,6 @@ function signupCtrl($http, $location) {
     };
 
     vm.validate = function () {
-
         vm.formWasValidated = true;
         const onlyLettersAndDigits = /^([-\.a-zа-яё \d]+)$/i;
 
@@ -41,10 +40,7 @@ function signupCtrl($http, $location) {
             vm.formModel.password.infoText = "Пароли не совпадают";
             vm.formModel.password2.infoText = "Пароли не совпадают";
         }
-
         vm.formWasValidated = vm.formWasValidated && vm.formModel.password.value === vm.formModel.password2.value;
-
-
     };
 
     vm.sendForm = function () {
@@ -65,6 +61,4 @@ function signupCtrl($http, $location) {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
         });
     }
-
-
 }

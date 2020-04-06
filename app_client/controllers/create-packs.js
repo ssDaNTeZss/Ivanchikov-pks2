@@ -33,7 +33,6 @@ function createPacksCtrl($http, $location) {
         console.log(arr);
         for (let i = 0; i < arr.length; i++) {
             let p1 = $http.post('/api/packs', {
-                //name: vm.formModel.name.value
                 name: arr[i]
             }, {
                 headers: {
@@ -46,7 +45,6 @@ function createPacksCtrl($http, $location) {
                 $location.path('/list-packs');
             }, err => {
                 vm.error = 'Ошибка: ' + JSON.stringify(err);
-                //console.log('error add practic: ', err);
             });
         }
     }

@@ -49,7 +49,6 @@ function updateStudentsCtrl($http, $location, $routeParams) {
             $location.path('/list-students');
         }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
-            //console.log('error add practic: ', err);
         });
     };
 
@@ -66,16 +65,13 @@ function updateStudentsCtrl($http, $location, $routeParams) {
         });
 
         p1.then(res => {
-            //console.log('success!123');
             const oneRow = res.data;
             vm.formModel.pack.value = oneRow.pack;
             vm.formModel.fio.value = oneRow.fio;
             vm.validate();
         }, err => {
             vm.error = 'Ошибка: ' + JSON.stringify(err);
-            //console.log('error add practic: ', err);
         });
     }
-
     init();
 }

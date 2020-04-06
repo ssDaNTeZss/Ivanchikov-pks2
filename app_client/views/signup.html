@@ -1,47 +1,61 @@
 <div class="container">
-    <h2>{{ vm.title }}</h2>
-
-    <form ng-class="(vm.formWasValidated) ? 'was-validated': ''" class="needs-validation" ng-submit="vm.sendForm()"
-          novalidate>
-        <div class="form-row">
-            <div class="col-12">
-                <label for="login">Логин</label>
-                <input ng-class="(vm.formModel.login.valid) ? '': 'is-invalid'" ng-model="vm.formModel.login.value"
-                       type="text" class="form-control" id="login" ng-keyup="vm.validate()">
-                <div ng-class="(vm.formModel.login.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
-                    {{vm.formModel.login.infoText}}
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-img"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">First time here?</h1>
+                                </div>
+                                <form ng-class="(vm.formWasValidated) ? 'was-validated': ''" class="user"
+                                      ng-submit="vm.sendForm()" novalidate>
+                                    <div class="form-group">
+                                        <input ng-class="(vm.formModel.login.valid) ? '': 'is-invalid'"
+                                               ng-model="vm.formModel.login.value"
+                                               type="text" class="form-control form-control-user" id="login"
+                                               placeholder="Логин" ng-keyup="vm.validate()">
+                                        <div ng-class="(vm.formModel.login.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
+                                            {{vm.formModel.login.infoText}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input ng-class="(vm.formModel.password.valid) ? '': 'is-invalid'"
+                                               ng-model="vm.formModel.password.value"
+                                               type="password" class="form-control form-control-user" id="password"
+                                               placeholder="Пароль" ng-keyup="vm.validate()">
+                                        <div ng-class="(vm.formModel.password.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
+                                            {{vm.formModel.password.infoText}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input ng-class="(vm.formModel.password2.valid) ? '': 'is-invalid'"
+                                               ng-model="vm.formModel.password2.value"
+                                               type="password2" class="form-control form-control-user" id="password2"
+                                               placeholder="Пароль ещё раз" ng-keyup="vm.validate()">
+                                        <div ng-class="(vm.formModel.password2.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
+                                            {{vm.formModel.password2.infoText}}
+                                        </div>
+                                    </div>
+                                    <button ng-disabled="!vm.formWasValidated"
+                                            class="btn btn-primary btn-user btn-block" type="submit">Зарегистироваться
+                                    </button>
+                                </form>
+                                <hr>
+                                <div ng-show="vm.error.length" class="alert alert-danger" role="alert">
+                                    {{vm.error}}
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="/#!/login">Войти</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="col-6">
-                <label for="password">Пароль</label>
-                <input ng-class="(vm.formModel.password.valid) ? '': 'is-invalid'"
-                       ng-model="vm.formModel.password.value"
-                       type="password" class="form-control" id="password" ng-keyup="vm.validate()">
-                <div ng-class="(vm.formModel.password.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
-                    {{vm.formModel.password.infoText}}
-                </div>
-            </div>
-
-            <div class="col-6">
-                <label for="password2">Пароль ещё раз</label>
-                <input ng-class="(vm.formModel.password2.valid) ? '': 'is-invalid'"
-                       ng-model="vm.formModel.password2.value"
-                       type="password" class="form-control" id="password2" ng-keyup="vm.validate()">
-                <div ng-class="(vm.formModel.password2.valid && vm.formWasValidated) ? 'valid-feedback': 'invalid-feedback'">
-                    {{vm.formModel.password2.infoText}}
-                </div>
-            </div>
-
         </div>
-        <br/>
-        <button ng-disabled="!vm.formWasValidated" class="btn btn-primary" type="submit">Зарегистироваться</button>
-        <a class="btn btn-info" href="/#!/login">Войти</a>
-    </form>
-
-    <div ng-show="vm.error.length" class="alert alert-danger" role="alert">
-        {{vm.error}}
     </div>
-
-</div>
-

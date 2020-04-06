@@ -1,20 +1,3 @@
-<!--<ng-include src="'views/mainMenu.html'"></ng-include>-->
-<!--<h2>{{ vm.title }}</h2>-->
-
-<!--<form ng-submit="vm.sendForm()" novalidate>-->
-<!--    <div class="form-row">-->
-<!--        <div class="col-12" ng-hide="vm.error.length">-->
-<!--            <h3>Действительно удалить практику "{{vm.formModel.name.value}}" с датами c {{vm.formModel.dateStart.value}} по {{vm.formModel.dateFinish.value}}?</h3>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <a class="btn btn-info" href="/#!/list">Отмена</a>-->
-<!--    <button ng-hide="vm.error.length" class="btn btn-danger" type="submit">Удалить</button>-->
-<!--</form>-->
-
-<!--<div ng-show="vm.error.length" class="alert alert-danger" role="alert">-->
-<!--    {{vm.error}}-->
-<!--</div>-->
-
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -23,9 +6,6 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#!/">
-            <!--            <div class="sidebar-brand-icon rotate-n-15">-->
-            <!--                <i class="fas fa-laugh-wink"></i>-->
-            <!--            </div>-->
             <div class="sidebar-brand-text mx-3">Журнал присутствия на занятиях</div>
         </a>
 
@@ -67,7 +47,6 @@
 
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                <!--                <ng-include src="'views/mainMenu.html'"></ng-include>-->
                 <div class="sidebar-brand-text mx-3"><h5>Удаление Групп(-ы)</h5></div>
 
                 <ul class="navbar-nav ml-auto">
@@ -101,14 +80,12 @@
                             <h3>Действительно удалить группу "{{vm.formModel.name.value}}"?</h3>
                         </div>
                     </div>
-<!--                    <a class="btn btn-info" href="/#!/list-packs">Отмена</a>-->
                     <a href="/#!/list-packs" class="btn btn-light btn-icon-split">
                     <span class="icon text-gray-600">
                       <i class="fas fa-arrow-left"></i>
                     </span>
                         <span class="text">Отмена</span>
                     </a>
-<!--                    <button ng-hide="vm.error.length" class="btn btn-danger" type="submit">Удалить</button>-->
                     <button ng-hide="vm.error.length" class="btn btn-danger btn-icon-split" type="submit">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-trash"></i>
@@ -119,6 +96,4 @@
             </div>
         </div>
     </div>
-
-
 </div>

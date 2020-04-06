@@ -17,11 +17,11 @@ describe('login 1', () => {
         });
 
         await syncTest(()=>{
-            element(by.model('vm.formModel.login.value')).clear().sendKeys('userQWQEWAWRFASWRF');
+            element(by.model('vm.formModel.login.value')).clear().sendKeys('qwe');
         });
 
         await syncTest(()=>{
-            element(by.model('vm.formModel.password.value')).clear().sendKeys('123456');
+            element(by.model('vm.formModel.password.value')).clear().sendKeys('qwe');
         });
 
         await syncTest(()=>{
@@ -47,7 +47,7 @@ describe('login 2', () => {
         });
 
         await syncTest(()=>{
-            element(by.model('vm.formModel.password.value')).clear().sendKeys('123456');
+            element(by.model('vm.formModel.password.value')).clear().sendKeys('user');
         });
 
         await syncTest(()=>{
