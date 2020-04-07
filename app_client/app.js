@@ -30,11 +30,6 @@ function config($routeProvider){
             controller: 'createStudentsCtrl',
             controllerAs: 'vm'
         })
-        .when('/update/:id', {
-            templateUrl: 'views/update.html',
-            controller: 'updateCtrl',
-            controllerAs: 'vm'
-        })
         .when('/update-packs/:id', {
             templateUrl: 'views/update-packs.html',
             controller: 'updatePacksCtrl',
@@ -48,11 +43,6 @@ function config($routeProvider){
         .when('/update-absenteeisms/:id', {
             templateUrl: 'views/update-absenteeisms.html',
             controller: 'updateAbsenteeismsCtrl',
-            controllerAs: 'vm'
-        })
-        .when('/delete/:id', {
-            templateUrl: 'views/delete.html',
-            controller: 'deleteCtrl',
             controllerAs: 'vm'
         })
         .when('/delete-packs/:id', {
@@ -96,11 +86,9 @@ angular
     .controller('createAbsenteeismsCtrl', createAbsenteeismsCtrl)
     .controller('createPacksCtrl', createPacksCtrl)
     .controller('createStudentsCtrl', createStudentsCtrl)
-    .controller('updateCtrl', updateCtrl)
     .controller('updatePacksCtrl', updatePacksCtrl)
     .controller('updateStudentsCtrl', updateStudentsCtrl)
     .controller('updateAbsenteeismsCtrl', updateAbsenteeismsCtrl)
-    .controller('deleteCtrl', deleteCtrl)
     .controller('deletePacksCtrl', deletePacksCtrl)
     .controller('deleteStudentsCtrl', deleteStudentsCtrl)
     .controller('deleteAbsenteeismsCtrl', deleteAbsenteeismsCtrl)
