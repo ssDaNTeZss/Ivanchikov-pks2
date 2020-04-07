@@ -57,7 +57,6 @@ process.on('SIGTERM', () => {
 });
 
 require('./config');
-require('./practic');
 require('./pack');
 require('./student');
 require('./absenteeism');

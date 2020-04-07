@@ -1,16 +1,9 @@
 var express = require('express');
 var router = express.Router();
-let ctrlPractics = require('../controllers/practics');
 let ctrlPacks = require('../controllers/packs');
 let ctrlStudents = require('../controllers/students');
 let ctrlAbsenteeisms = require('../controllers/absenteeisms');
 let ctrlAuth = require('../controllers/auth');
-
-router.get('/practics', ctrlPractics.getAll);
-router.get('/practics/:id', ctrlPractics.getOne);
-router.post('/practics', ctrlPractics.create);
-router.put('/practics/:id', ctrlPractics.update);
-router.delete('/practics/:id', ctrlPractics.delete);
 
 router.get('/packs', ctrlPacks.getAll);
 router.get('/packs/:id', ctrlPacks.getOne);
